@@ -6,6 +6,7 @@
     <Company>.NET Foundation</Company>
     <Copyright>Copyright (C) .NET Foundation</Copyright>
     <DebugType>embedded</DebugType>
+    <DefineConstants>XUNIT_NULLABLE</DefineConstants>
     <EmbedUntrackedSources>true</EmbedUntrackedSources>
     <LangVersion>latest</LangVersion>
     <NoWarn>$(NoWarn);NU5105</NoWarn>
@@ -26,7 +27,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <PackageReference Include="Nerdbank.GitVersioning" Version="3.0.28" PrivateAssets="all" />
+    <PackageReference Include="Nerdbank.GitVersioning" Version="3.0.50" PrivateAssets="all" />
     <PackageReference Include="SourceLink.Create.CommandLine" Version="2.8.3" PrivateAssets="all" />
   </ItemGroup>
 
