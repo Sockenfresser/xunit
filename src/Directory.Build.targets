@@ -1,6 +1,8 @@
 <Project>
 
-  <Import Project="netfx.targets" />
+  <ItemGroup Condition=" '$(TargetFrameworkIdentifier)' == '.NETFramework' ">
+    <PackageReference Include="Microsoft.NETFramework.ReferenceAssemblies" Version="1.0.0" />
+  </ItemGroup>
 
   <!-- Supplement NBGV versions with height -->
   <Target Name="UpdateAssemblyVersionInfo" BeforeTargets="GenerateAssemblyVersionInfo" DependsOnTargets="GetBuildVersion">
