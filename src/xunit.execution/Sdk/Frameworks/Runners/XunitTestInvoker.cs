@@ -116,13 +116,20 @@ namespace Xunit.Sdk
 
         async Task<decimal> InvokeTimeoutTestMethodAsync(object testClassInstance)
         {
-            var baseTask = base.InvokeTestMethodAsync(testClassInstance);
+            var baseTask = InvokeBaseTestMethodAfterYieldForSyncronousCallSupport(testClassInstance);
             var resultTask = await Task.WhenAny(baseTask, Task.Delay(TestCase.Timeout));
 
             if (resultTask != baseTask)
                 throw new TestTimeoutException(TestCase.Timeout);
 
             return baseTask.Result;
+        }
+
+        async Task<decimal> InvokeBaseTestMethodAfterYieldForSyncronousCallSupport(object testClassInstance)
+        {
+            await Task.Yield();
+
+            return await base.InvokeTestMethodAsync(testClassInstance);
         }
     }
 }
